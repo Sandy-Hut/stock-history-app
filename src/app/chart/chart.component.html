@@ -1,0 +1,23 @@
+
+<div class="col-sm-12 container">
+  <form>
+    <div class="form-group">
+      <label for="sel1"><h4>Select Symbol</h4> (list is static for demo purpose, one could add a custom backend service for getting all the stock symbols)</label>
+      <select class="form-control" id="select" (change)="selectSymbol($event.target.value)">
+        <option *ngFor="let symbol of symbols">{{symbol}}</option>
+      </select>
+    </div>
+  </form>
+  <ul class="nav nav-tabs">
+    <li (click)="ShowLastWeekChart('week')" [ngClass]="{'active':activeTab==='week'}"><a href="javascript:void(0)">Last Week</a></li>
+    <li (click)="ShowLastMonthChart('month')" [ngClass]="{ 'active':activeTab==='month'}"><a href="javascript:void(0)">Last Month</a></li>
+    <li (click)="ShowLast6MonthsChart('months')"[ngClass]="{ 'active':activeTab==='months'}"><a href="javascript:void(0)" >Last 6 Months</a></li>
+  </ul>
+</div>
+<div *ngIf="chartOptions && loaded">
+  <highcharts-chart
+    [Highcharts] = "highcharts" 
+    [options] = "chartOptions" 
+    style = "width: 100%; display: block;">
+  </highcharts-chart>
+</div>

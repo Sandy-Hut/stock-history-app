@@ -1,0 +1,14 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+a{
+    display: inline-block;
+    padding: 10px;
+    color: #007bff;
+    border-radius: 3px;
+}
+.active{
+    background: #ddd;
+    color: red;
+}
+.mar-20{
+    margin: 20px 0;
+}
